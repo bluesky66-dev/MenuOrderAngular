@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { ElectronService } from './core/services';
-import { TranslateService } from '@ngx-translate/core';
-import { AppConfig } from '../environments/environment';
+import {Component} from '@angular/core';
+import {ElectronService} from './core/services';
+import {TranslateService} from '@ngx-translate/core';
+import {AppConfig} from '../environments/environment';
+import connectToDb from './db/connect';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,9 @@ export class AppComponent {
   ) {
     translate.setDefaultLang('en');
     console.log('AppConfig', AppConfig);
+
+    // mongoose connection
+    connectToDb();
 
     if (electronService.isElectron) {
       console.log(process.env);
