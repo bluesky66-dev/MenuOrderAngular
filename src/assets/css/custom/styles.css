@@ -1,0 +1,157 @@
+body{
+  background-color: #F9F9F9; /* 00D4FF */
+  font-family: "Verdana", "Open+Sans", sans-serif;
+  margin: 92px 0 51px;
+}
+
+h1 {
+  font-family: "Raleway", serif;
+  font-size: 2.625rem;
+}
+
+h3 {
+  font-family: "Raleway", serif;
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-family: "Raleway", serif;
+  font-size: 1.625rem;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.navbar-section {
+  background-color: #f9f9f9;//#f9f9f9
+  border-bottom: #eeeeee 1px solid;
+  box-shadow: 0 5px 10px 0 rgba(0,64,128,.05);
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+}
+
+.navbar-header {
+  border-bottom: #22A1CC 2px solid;
+}
+
+/* .header {
+  margin: 0 1%;
+} */
+
+.navbar-logo {
+  width: 11.25rem;
+}
+
+.nav-social-icon {
+  color: #1F2326;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.175rem;
+  margin: 0.8rem 0.2rem 0.8rem 0;
+}
+
+.entrance-btn {
+  font-size: 0.7rem;
+  margin: 3px 0;
+}
+
+.nav-head-icon {
+  display: inline-block;
+  font-size: 1.175rem;
+  margin: 1rem 2.2%;
+}
+
+
+.alert-menu-header {
+  background-color: #1F2326;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.alert-head {
+  margin-bottom: 0;
+}
+
+.alert-menu-footer {
+  position: fixed;
+  bottom: 0;
+}
+
+.all-arrow {
+  margin-left: 50%;
+}
+
+.navbar-item {
+  border-bottom: transparent 1px solid;
+}
+
+.nav-item a {
+  color: #1F2326;
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
+}
+
+.nav-item a:hover {
+  color: #22A1CC;
+}
+
+.user-image {
+  cursor: pointer;
+  float: right;
+  margin: 0.45rem  0;
+}
+
+.current-usr-img {
+  border-radius: 50%;
+  display: block;
+  float: left;
+  width: 2.5rem;
+}
+
+.usr {
+  display: inline-block;
+  font-weight: 500;
+  margin: 0.5rem 0 0 0.5rem;
+}
+
+.usr-action-icon {
+  font-size: 1rem;
+  margin-right: 0.2rem;
+  width: 20px;
+}
+
+.footer {
+  background-color: #f5f7fa;
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  margin: 1% 0;
+}
+
+.foot-note {
+  font-size: 0.7rem;
+}
+
+.footer a {
+  color: #000000;
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
+  margin: 0 0.5rem;
+}
+
+.nav-span-tool:hover, .nav-head-icon:hover, .footer a:hover, .nav-social-icon:hover, .usr:hover {
+  color: #fb9a40;
+  text-decoration: none;
+}
+
+.link-space {
+  margin: 0 0.5rem;
+}
