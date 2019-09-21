@@ -17,9 +17,6 @@ export class AppComponent {
     translate.setDefaultLang('en');
     console.log('AppConfig', AppConfig);
 
-    // mongoose connection
-    connectToDb();
-
     if (electronService.isElectron) {
       console.log(process.env);
       console.log('Mode electron');
