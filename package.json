@@ -7,8 +7,8 @@
   "main": "main.js",
   "private": true,
   "build": {
-    "appId": "com.luncher.nice.demo.app",
-    "productName": "Lunch App Demo"
+    "appId": "com.luncher.nice.app",
+    "productName": "Lunch App"
   },
   "scripts": {
     "postinstall": "npm run postinstall:electron && electron-builder install-app-deps",
@@ -23,15 +23,14 @@
     "ng:serve:web": "npm run postinstall:web && ng serve -o",
     "electron:serve-tsc": "tsc -p tsconfig-serve.json",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
-    "electron:local": "npm run build:prod && electron .",
-    "electron:linux": "npm run build:prod && electron-builder build --linux",
-    "electron:windows": "npm run build:prod && electron-builder build --windows",
-    "electron:mac": "npm run build:prod && electron-builder build --mac",
+    "electron:local": "npm run build:prod && cd dist && npm install && electron .",
+    "electron:linux": "npm run build:prod && cd dist && npm install && electron-builder build --linux",
+    "electron:windows": "npm run build:prod && cd dist && npm install && electron-builder build --windows",
+    "electron:mac": "npm run build:prod && cd dist && npm install && electron-builder build --mac",
     "test": "npm run postinstall:web && ng test",
     "e2e": "npm run build:prod && mocha --timeout 300000 --require ts-node/register e2e/**/*.spec.ts",
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "lint": "ng lint",
-    "pack": "build --dir"
+    "lint": "ng lint"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.802.2",
