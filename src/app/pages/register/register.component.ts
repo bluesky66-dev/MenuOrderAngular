@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-register',
@@ -8,12 +9,13 @@ import {AuthService} from '../../services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  registerForm;
+  commonForm;
   constructor(
+    private ngxService: NgxUiLoaderService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
   ) {
-    this.registerForm = this.formBuilder.group({
+    this.commonForm = this.formBuilder.group({
       fname: '',
       lname: '',
       email: '',
@@ -26,6 +28,8 @@ export class RegisterComponent implements OnInit {
   }
 
   async onSubmit(userData) {
+    this.ngxService.start();
     await this.authService.register(userData);
+    this.ngxService.stop();
   }
 }

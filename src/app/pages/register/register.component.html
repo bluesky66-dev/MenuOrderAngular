@@ -1,6 +1,6 @@
 
 <div class="container">
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+  <form [formGroup]="commonForm" (ngSubmit)="onSubmit(commonForm.value)">
     <div class="">
       <label>First Name *:</label>
       <input type="text" id="fname" formControlName="fname" placeholder="Enter First Name" autofocus>

@@ -4,14 +4,13 @@ import '../polyfills';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {CoreModule} from './core/core.module';
 import {SharedModule} from './shared/shared.module';
 
 import {AppRoutingModule} from './app-routing.module';
-
 // NG Translate
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {HomeModule} from './home/home.module';
@@ -27,6 +26,10 @@ import {AddItemComponent} from './pages/add-item/add-item.component';
 import {ItemListComponent} from './pages/item-list/item-list.component';
 import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
+import {NgxUiLoaderModule} from 'ngx-ui-loader';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CommonModule} from '@angular/common';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -55,7 +58,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     CoreModule,
     SharedModule,
     HomeModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    NgxUiLoaderModule,
     AppRoutingModule,
+    ToastrModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

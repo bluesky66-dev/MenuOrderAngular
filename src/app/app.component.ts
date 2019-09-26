@@ -8,7 +8,7 @@ import {AppConfig} from '../environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor(
     public electronService: ElectronService,
     private translate: TranslateService
@@ -23,8 +23,5 @@ export class AppComponent implements OnInit {
     } else {
       console.log('Mode web');
     }
-  }
-
-  ngOnInit() {
   }
 }
