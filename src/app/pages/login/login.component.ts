@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {FormBuilder} from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
   commonForm;
   constructor(
-    private ngxService: NgxUiLoaderService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService
   ) {
     this.commonForm = this.formBuilder.group({
       email: '',
@@ -26,14 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  async onSubmit(userData) {
-    this.ngxService.start();
-    const isLoggedIn = await this.authService.login(userData);
-    this.ngxService.stop();
-    if (isLoggedIn) {
-      this.toastr.success('Login success!');
-    } else {
-      this.toastr.error('Invalid email or password!');
-    }
+  onSubmit(userData) {
+    this.authService.login(userData);
   }
 }

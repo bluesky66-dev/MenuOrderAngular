@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
-import { NgxUiLoaderService } from 'ngx-ui-loader';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 
@@ -29,17 +29,17 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.isRegister.subscribe(isRegister => {
+      if (isRegister) {
+        this.toastr.success('Register success!');
+        this.router.navigate(['/login']);
+      } else {
+        this.toastr.error('Register failed!');
+      }
+    });
   }
 
   async onSubmit(userData) {
-    this.ngxService.start();
-    const isRegister = await this.authService.register(userData);
-    this.ngxService.stop();
-    if (isRegister) {
-      this.toastr.success('Register success!');
-      this.router.navigate(['/login']);
-    } else {
-      this.toastr.error('Register failed!');
-    }
+    this.authService.register(userData);
   }
 }

@@ -1,38 +1,51 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import connectToDb from '../common/db/connect';
 import dotenv from 'dotenv';
+import {BackendService} from './backend.service';
 
 dotenv.config();
+import * as ls from 'local-storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  isLoggedIn: EventEmitter<boolean> = new EventEmitter();
+  isRegister: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() {
+  constructor(
+    public backendService: BackendService,
+  ) {
   }
 
   async login(userData) {
+    this.backendService.setLoading(true);
     const mongoClient = connectToDb();
     try {
       await mongoClient.connect();
       console.log('user login start', userData);
       const db = mongoClient.db(process.env.DB_NAME);
-      const docs = await db.collection('User').find(userData ).toArray();
+      const docs = await db.collection('User').find(userData).toArray();
       console.log('user login end', docs);
       mongoClient.close();
       if (docs.length > 0) {
+        ls.set('userData', JSON.stringify(docs[0]));
+        this.isLoggedIn.next(true);
+        this.backendService.setLoading(false);
         return true;
       } else {
+        this.backendService.setLoading(false);
         return false;
       }
     } catch (e) {
       mongoClient.close();
+      this.backendService.setLoading(false);
       return false;
     }
   }
 
   async register(userData) {
+    this.backendService.setLoading(true);
     const mongoClient = connectToDb();
     try {
       await mongoClient.connect();
@@ -41,9 +54,12 @@ export class AuthService {
       await db.collection('User').insertOne(userData);
       console.log('user inserted');
       mongoClient.close();
+      this.backendService.setLoading(false);
+      this.isRegister.next(true);
       return true;
     } catch (e) {
       mongoClient.close();
+      this.backendService.setLoading(false);
       return false;
     }
   }

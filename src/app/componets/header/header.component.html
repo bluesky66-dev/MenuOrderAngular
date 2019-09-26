@@ -30,10 +30,13 @@
           <li class="navbar-item nav-item">
             <a class="nav-link" routerLink="/item-list" routerLinkActive="active">UPDATE MENU ITEMS</a>
           </li>
-          <li class="navbar-item nav-item">
+          <li *ngIf="isLoggedIn" class="navbar-item nav-item">
+            <a class="nav-link" routerLinkActive="active" style="text-transform: uppercase">{{userData.fname}} {{userData.lname}}</a>
+          </li>
+          <li *ngIf="!isLoggedIn" class="navbar-item nav-item">
             <a class="nav-link" routerLink="/login" routerLinkActive="active">LOGIN</a>
           </li>
-          <li class="navbar-item nav-item">
+          <li *ngIf="!isLoggedIn" class="navbar-item nav-item">
             <a class="nav-link" routerLink="/register" routerLinkActive="active">REGISTER</a>
           </li>
         </ul>

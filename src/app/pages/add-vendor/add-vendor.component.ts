@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-add-vendor',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-vendor.component.scss']
 })
 export class AddVendorComponent implements OnInit {
-
-  constructor() { }
+  commonForm;
+  constructor(
+    private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit() {
   }
