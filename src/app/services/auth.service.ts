@@ -41,8 +41,10 @@ export class AuthService {
       await db.collection('User').insertOne(userData);
       console.log('user inserted');
       mongoClient.close();
+      return true;
     } catch (e) {
       mongoClient.close();
+      return false;
     }
   }
 }

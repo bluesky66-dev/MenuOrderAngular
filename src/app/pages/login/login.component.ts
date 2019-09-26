@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     if (isLoggedIn) {
       this.toastr.success('Login success!');
     } else {
-      this.toastr.error('Invalid email or password');
+      this.toastr.error('Invalid email or password!');
     }
   }
 }
