@@ -1,23 +1,44 @@
 
 <div class="container">
-  <form>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
     <div class="">
-      <label for="">First Name:</label>
-      <input type="text" id="fname" name="" value="" placeholder="Enter First Name" autofocus>
+      <label>First Name *:</label>
+      <input type="text" id="fname" formControlName="fname" placeholder="Enter First Name" autofocus>
     </div>
     <div class="">
-      <label for="">Last Name:</label>
-      <input type="text" id="lname" name="" value="" placeholder="Enter last name">
+      <label>Last Name *:</label>
+      <input type="text" id="lname" formControlName="lname" placeholder="Enter last name">
     </div>
     <div class="">
-      <label for="">Email:</label>
-      <input type="email" id="username" name="" value="" placeholder="Enter a price">
+      <label>Email *:</label>
+      <input type="text" id="email" formControlName="email" placeholder="Enter email">
     </div>
     <div class="">
-      <label for="">Password:</label>
-      <input type="password" id="password" name="" value="" placeholder="Name of Vendor">
+      <label>Phone *:</label>
+      <input type="text" id="phone" formControlName="phone" placeholder="Enter phone">
     </div>
-    <button type="submit" id="signUp" name="button" class="btn waves-effect waves-light">Submit</button>
+    <div class="">
+      <label>Password *:</label>
+      <input type="password" id="password" formControlName="password" placeholder="">
+    </div>
+<!--    <div class="">-->
+<!--      <label>Role *:</label>-->
+<!--      <select id="role" formControlName="role">-->
+<!--        <option value="customer">Customer</option>-->
+<!--        <option value="vendor">Vendor</option>-->
+<!--        <option value="employee">Employee</option>-->
+<!--        <option value="ambassador">Ambassador</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="">-->
+<!--      <label>Business Name *:</label>-->
+<!--      <input type="text" id="bu_name" formControlName="bu_name" placeholder="Enter business name">-->
+<!--    </div>-->
+<!--    <div class="">-->
+<!--      <label>Business Address *:</label>-->
+<!--      <input type="text" id="bu_address" formControlName="bu_address" placeholder="Enter business address">-->
+<!--    </div>-->
+    <button type="submit" id="signUp" class="btn waves-effect waves-light">Submit</button>
   </form>
 </div>
 
