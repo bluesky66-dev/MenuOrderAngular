@@ -1,9 +1,8 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import connectToDb from '../common/db/connect';
-import dotenv from 'dotenv';
 import {BackendService} from './backend.service';
+import {AppConfig} from '../../environments/environment';
 
-dotenv.config();
 import * as ls from 'local-storage';
 
 @Injectable({
@@ -24,7 +23,7 @@ export class AuthService {
     try {
       await mongoClient.connect();
       console.log('user login start', userData);
-      const db = mongoClient.db(process.env.DB_NAME);
+      const db = mongoClient.db(AppConfig.DB_NAME);
       const docs = await db.collection('User').find(userData).toArray();
       console.log('user login end', docs);
       mongoClient.close();
@@ -50,7 +49,7 @@ export class AuthService {
     try {
       await mongoClient.connect();
       console.log('user insert start', userData);
-      const db = mongoClient.db(process.env.DB_NAME);
+      const db = mongoClient.db(AppConfig.DB_NAME);
       await db.collection('User').insertOne(userData);
       console.log('user inserted');
       mongoClient.close();
