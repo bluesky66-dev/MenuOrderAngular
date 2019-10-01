@@ -21,15 +21,15 @@
       <label>Password *:</label>
       <input type="password" id="password" formControlName="password" placeholder="">
     </div>
-<!--    <div class="">-->
-<!--      <label>Role *:</label>-->
-<!--      <select id="role" formControlName="role">-->
-<!--        <option value="customer">Customer</option>-->
-<!--        <option value="vendor">Vendor</option>-->
-<!--        <option value="employee">Employee</option>-->
-<!--        <option value="ambassador">Ambassador</option>-->
-<!--      </select>-->
-<!--    </div>-->
+    <div class="">
+      <label>Role *:</label>
+      <select class="d-block" id="role" formControlName="role" required>
+        <option value="">Select a role</option>
+        <option value="vendor">Vendor</option>
+        <option value="employee">Employee</option>
+        <option value="ambassador">Ambassador</option>
+      </select>
+    </div>
 <!--    <div class="">-->
 <!--      <label>Business Name *:</label>-->
 <!--      <input type="text" id="bu_name" formControlName="bu_name" placeholder="Enter business name">-->
@@ -38,7 +38,7 @@
 <!--      <label>Business Address *:</label>-->
 <!--      <input type="text" id="bu_address" formControlName="bu_address" placeholder="Enter business address">-->
 <!--    </div>-->
-    <button type="submit" id="signUp" class="btn waves-effect waves-light">Submit</button>
+    <button type="submit" id="signUp" class="btn waves-effect waves-light" style="margin-top: 18px">Submit</button>
   </form>
 </div>
 

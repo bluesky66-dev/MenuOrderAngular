@@ -30,6 +30,7 @@ import {NgxUiLoaderModule} from 'ngx-ui-loader';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
+import { UpdateItemComponent } from './pages/update-item/update-item.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddItemComponent,
     ItemListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UpdateItemComponent
   ],
   imports: [
     BrowserModule,

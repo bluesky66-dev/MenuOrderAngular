@@ -1,4 +1,4 @@
-export const AppConfig: {
+export const AppConfig = {
   production: false,
   environment: 'LOCAL',
   DB_HOST: 'mongodb',

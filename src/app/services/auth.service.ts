@@ -33,11 +33,13 @@ export class AuthService {
         this.backendService.setLoading(false);
         return true;
       } else {
+        this.isLoggedIn.next(false);
         this.backendService.setLoading(false);
         return false;
       }
     } catch (e) {
       mongoClient.close();
+      this.isLoggedIn.next(false);
       this.backendService.setLoading(false);
       return false;
     }
@@ -58,6 +60,7 @@ export class AuthService {
       return true;
     } catch (e) {
       mongoClient.close();
+      this.isRegister.next(false);
       this.backendService.setLoading(false);
       return false;
     }

@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
-import {ToastrService} from 'ngx-toastr';
 import {ItemService} from '../../services/item.service';
+import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-add-item',
-  templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.scss']
+  selector: 'app-update-item',
+  templateUrl: './update-item.component.html',
+  styleUrls: ['./update-item.component.scss']
 })
-export class AddItemComponent implements OnInit {
+export class UpdateItemComponent implements OnInit {
   commonForm;
   constructor(
     private formBuilder: FormBuilder,
@@ -39,6 +39,6 @@ export class AddItemComponent implements OnInit {
 
   onSubmit(data) {
     console.log('Item data', data);
-    this.itemService.add(data);
+    this.itemService.update(data);
   }
 }
