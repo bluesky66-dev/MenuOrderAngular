@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
@@ -8,10 +8,12 @@ import {ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
   commonForm;
+  userRole;
   constructor(
     private ngxService: NgxUiLoaderService,
     private authService: AuthService,
@@ -22,10 +24,18 @@ export class RegisterComponent implements OnInit {
     this.commonForm = this.formBuilder.group({
       fname: '',
       lname: '',
+      username: '',
       email: '',
       phone: '',
       password: '',
       role: '',
+      bu_name: '',
+      bu_address: '',
+      com_name: '',
+      com_address: '',
+      dep_name: '',
+      com_allowance: '',
+      allow_rollover: '',
     });
   }
 
@@ -40,7 +50,43 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  onRoleChange(role) {
+    console.log('userRole', role);
+    this.userRole = role;
+  }
+
+  onDepChange(dep) {
+    console.log('department', dep);
+  }
+
+  onComNamesChange(com_name) {
+    console.log('company name', com_name);
+  }
+
   async onSubmit(userData) {
+    if (!userData.role) {
+      this.toastr.error('Please select a role!');
+      return false;
+    }
+    switch (userData.role) {
+      case 'vendor':
+        delete userData.com_name;
+        delete userData.com_address;
+        delete userData.dep_name;
+        delete userData.com_allowance;
+        delete userData.allow_rollover;
+        break;
+      case 'employee':
+        delete userData.bu_name;
+        delete userData.bu_address;
+        delete userData.com_allowance;
+        delete userData.allow_rollover;
+        break;
+      case 'ambassador':
+        delete userData.bu_name;
+        delete userData.bu_address;
+        break;
+    }
     this.authService.register(userData);
   }
 }

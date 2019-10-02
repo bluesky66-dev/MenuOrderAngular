@@ -22,10 +22,10 @@ export class AuthService {
     const mongoClient = connectToDb();
     try {
       await mongoClient.connect();
-      console.log('user login start', userData);
+      // console.log('user login start', userData);
       const db = mongoClient.db(AppConfig.DB_NAME);
       const docs = await db.collection('User').find(userData).toArray();
-      console.log('user login end', docs);
+      // console.log('user login end', docs);
       mongoClient.close();
       if (docs.length > 0) {
         ls.set('userData', JSON.stringify(docs[0]));
@@ -50,10 +50,12 @@ export class AuthService {
     const mongoClient = connectToDb();
     try {
       await mongoClient.connect();
-      console.log('user insert start', userData);
+
       const db = mongoClient.db(AppConfig.DB_NAME);
-      await db.collection('User').insertOne(userData);
-      console.log('user inserted');
+      const cResult = await db.collection('User').insertOne(userData);
+      if (cResult) {
+      }
+      // console.log('user inserted', cResult.insertedId.toString());
       mongoClient.close();
       this.backendService.setLoading(false);
       this.isRegister.next(true);
