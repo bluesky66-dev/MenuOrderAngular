@@ -9,7 +9,7 @@ import * as ls from "local-storage";
 })
 export class ItemService {
   isAdded: EventEmitter<boolean> = new EventEmitter();
-  changedList: EventEmitter<boolean> = new EventEmitter();
+  changedList: EventEmitter<any> = new EventEmitter();
 
   constructor(
     public backendService: BackendService,
@@ -40,5 +40,36 @@ export class ItemService {
   }
 
   async update(data) {
+  }
+
+  async fetchList(page) {
+    this.backendService.setLoading(true);
+    const mongoClient = connectToDb();
+    let list = [];
+    try {
+      await mongoClient.connect();
+      const db = mongoClient.db(AppConfig.DB_NAME);
+      let userData = ls.get<string>('userData');
+      userData = JSON.parse(userData);
+
+      // @ts-ignore
+      const search = {};
+      // @ts-ignore
+      if (userData.role === 'vendor') {
+        // @ts-ignore
+        search.vendor = userData._id;
+      }
+      console.log('search', search);
+      list = await db.collection('Item').find(search).toArray();
+      mongoClient.close();
+      this.backendService.setLoading(false);
+      this.changedList.next(list);
+      return true;
+    } catch (e) {
+      mongoClient.close();
+      this.changedList.next(list);
+      this.backendService.setLoading(false);
+      return false;
+    }
   }
 }

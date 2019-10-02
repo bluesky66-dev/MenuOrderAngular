@@ -10,11 +10,13 @@ import {AddItemComponent} from './pages/add-item/add-item.component';
 import {ItemListComponent} from './pages/item-list/item-list.component';
 import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
+import {MyItemsComponent} from './pages/my-items/my-items.component';
 
 const routes: Routes = [
   {path: '', component: ItemListComponent},
   {path: 'card-list', component: CardListComponent},
   {path: 'my-order', component: MyOrderComponent},
+  {path: 'my-items', component: MyItemsComponent},
   {path: 'orders-all', component: OrdersAllComponent},
   {path: 'add-vendor', component: AddVendorComponent},
   {path: 'vendor-list', component: VendorListComponent},

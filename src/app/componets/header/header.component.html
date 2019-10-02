@@ -7,7 +7,7 @@
       <div class="navbar-footer navbar-expand-lg ">
         <ul class="nav navbar-nav navbar-left">
           <li class="navbar-item nav-item-active nav-item">
-            <a class="nav-link" routerLink="/" routerLinkActive="active">MENU</a>
+            <a class="nav-link" routerLink="/" routerLinkActive="active">MENUS</a>
           </li>
           <li *ngIf="userData.role=='employee'" class="navbar-item nav-item">
             <a class="nav-link" routerLink="/card-list" routerLinkActive="active">CART</a>
@@ -17,6 +17,9 @@
           </li>
           <li *ngIf="userData.role=='vendor'" class="navbar-item nav-item">
             <a class="nav-link" routerLink="/orders-all" routerLinkActive="active">ORDERS</a>
+          </li>
+          <li *ngIf="userData.role=='vendor'" class="navbar-item nav-item">
+            <a class="nav-link" routerLink="/my-items" routerLinkActive="active">ITEMS</a>
           </li>
           <li *ngIf="userData.role=='admin'|| userData.role=='ambassador'" class="navbar-item nav-item">
             <a class="nav-link" routerLink="/add-vendor" routerLinkActive="active">ADD VENDOR</a>
