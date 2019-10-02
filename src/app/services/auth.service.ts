@@ -51,6 +51,25 @@ export class AuthService {
     try {
       await mongoClient.connect();
 
+      switch (userData.role) {
+        case 'vendor':
+          delete userData.com_name;
+          delete userData.com_address;
+          delete userData.dep_name;
+          delete userData.com_allowance;
+          delete userData.allow_rollover;
+          break;
+        case 'employee':
+          delete userData.bu_name;
+          delete userData.bu_address;
+          delete userData.com_allowance;
+          delete userData.allow_rollover;
+          break;
+        case 'ambassador':
+          delete userData.bu_name;
+          delete userData.bu_address;
+          break;
+      }
       const db = mongoClient.db(AppConfig.DB_NAME);
       const cResult = await db.collection('User').insertOne(userData);
       if (cResult) {

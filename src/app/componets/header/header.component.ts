@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
         this.toastr.success('Login success!');
         const userData = ls.get<string>('userData');
         this.userData = JSON.parse(userData);
+        console.log('this.userData', this.userData);
         this.router.navigate(['/']);
       } else {
         this.toastr.error('Invalid email or password!');

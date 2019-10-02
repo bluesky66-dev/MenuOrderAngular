@@ -4,6 +4,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {AppConfig} from '../environments/environment';
 import {BackendService} from './services/backend.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',

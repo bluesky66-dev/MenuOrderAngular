@@ -2,6 +2,7 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {BackendService} from './backend.service';
 import connectToDb from '../common/db/connect';
 import {AppConfig} from '../../environments/environment';
+import * as ls from "local-storage";
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class ItemService {
     try {
       await mongoClient.connect();
       const db = mongoClient.db(AppConfig.DB_NAME);
+      let userData = ls.get<string>('userData');
+      userData = JSON.parse(userData);
+      // @ts-ignore
+      data.vendor = userData._id;
       await db.collection('Item').insertOne(data);
       mongoClient.close();
       this.backendService.setLoading(false);
