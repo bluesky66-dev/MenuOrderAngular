@@ -104,7 +104,7 @@ export class ItemService {
     }
   }
 
-  async fetchList(page) {
+  async fetchList(itemsPerPage) {
     this.backendService.setLoading(true);
     const mongoClient = connectToDb();
     let list = [];
@@ -117,7 +117,7 @@ export class ItemService {
       // @ts-ignore
       const search = {};
       // @ts-ignore
-      if (userData.role === 'vendor') {
+      if (userData.role === 'vendor' && itemsPerPage !== -1) {
         // @ts-ignore
         search.vendor = userData._id;
       }
@@ -147,7 +147,7 @@ export class ItemService {
 
       // @ts-ignore
       const search = {_id: ObjectId(itemId)};
-      console.log('search', search);
+      // console.log('search', search);
       const docs = await db.collection('Item').find(search).toArray();
       mongoClient.close();
       this.backendService.setLoading(false);

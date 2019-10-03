@@ -1,0 +1,14 @@
+app-item-list{
+  .datatable-wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .dataTables_length {
+    margin-top: 22px;
+  }
+  .order-item {
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+}

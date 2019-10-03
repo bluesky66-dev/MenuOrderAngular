@@ -22,20 +22,20 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.authService.isLoggedIn.subscribe(checkLogin => {
-      console.log('user logged in', checkLogin);
+      // console.log('user logged in', checkLogin);
       this.isLoggedIn = checkLogin;
       if (checkLogin) {
         this.toastr.success('Login success!');
         const userData = ls.get<string>('userData');
         this.userData = JSON.parse(userData);
-        console.log('this.userData', this.userData);
+        // console.log('this.userData', this.userData);
         this.router.navigate(['/']);
       } else {
         this.toastr.error('Invalid email or password!');
       }
     });
     this.authService.isLogout.subscribe(isLogout => {
-      console.log('user logged in', isLogout);
+      // console.log('user logged in', isLogout);
       this.isLoggedIn = !isLogout;
       this.userData = {};
     });
