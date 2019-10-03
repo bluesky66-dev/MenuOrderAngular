@@ -19,7 +19,7 @@
             <a class="nav-link" routerLink="/orders-all" routerLinkActive="active">ORDERS</a>
           </li>
           <li *ngIf="userData.role=='vendor'" class="navbar-item nav-item">
-            <a class="nav-link" routerLink="/my-items" routerLinkActive="active">ITEMS</a>
+            <a class="nav-link" routerLink="/me/items" routerLinkActive="active">ITEMS</a>
           </li>
           <li *ngIf="userData.role=='admin'|| userData.role=='ambassador'" class="navbar-item nav-item">
             <a class="nav-link" routerLink="/add-vendor" routerLinkActive="active">ADD VENDOR</a>

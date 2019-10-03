@@ -30,7 +30,7 @@ export class AddItemComponent implements OnInit {
     this.itemService.isAdded.subscribe(isAdded => {
       if (isAdded) {
         this.toastr.success('Added menu successfully!');
-        this.router.navigate(['/my-items']);
+        this.router.navigate(['/me/items']);
       } else {
         this.toastr.error('Adding item failed!');
       }

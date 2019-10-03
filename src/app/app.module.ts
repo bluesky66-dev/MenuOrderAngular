@@ -31,7 +31,6 @@ import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
 import { UpdateItemComponent } from './pages/update-item/update-item.component';
-import {DataTablesModule} from 'angular-datatables';
 import { MyItemsComponent } from './pages/my-items/my-items.component';
 
 // AoT requires an exported function for factories
@@ -67,7 +66,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     NgxUiLoaderModule,
     AppRoutingModule,
-    DataTablesModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
       loader: {

@@ -1,0 +1,17 @@
+app-my-items{
+  .datatable-wrapper{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .dataTables_length{
+    margin-top: 22px;
+  }
+  .edit-item, .del-item{
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+  .del-item{
+    margin-left: 12px;
+  }
+}
