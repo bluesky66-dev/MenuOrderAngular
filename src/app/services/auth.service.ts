@@ -10,6 +10,7 @@ import * as ls from 'local-storage';
 })
 export class AuthService {
   isLoggedIn: EventEmitter<boolean> = new EventEmitter();
+  isLogout: EventEmitter<boolean> = new EventEmitter();
   isRegister: EventEmitter<boolean> = new EventEmitter();
 
   constructor(
@@ -114,5 +115,11 @@ export class AuthService {
       this.backendService.setLoading(false);
       return false;
     }
+  }
+
+  logout() {
+    ls.remove('userData');
+    this.isLogout.next(true);
+    return true;
   }
 }

@@ -34,5 +34,10 @@ export class HeaderComponent implements OnInit {
         this.toastr.error('Invalid email or password!');
       }
     });
+    this.authService.isLogout.subscribe(isLogout => {
+      console.log('user logged in', isLogout);
+      this.isLoggedIn = !isLogout;
+      this.userData = {};
+    });
   }
 }

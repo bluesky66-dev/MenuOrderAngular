@@ -30,11 +30,11 @@
           <li *ngIf="userData.role=='vendor'" class="navbar-item nav-item">
             <a class="nav-link" routerLink="/add-item" routerLinkActive="active">ADD MENU ITEM</a>
           </li>
-          <li *ngIf="userData.role=='vendor'" class="navbar-item nav-item">
-            <a class="nav-link" routerLink="/item-list" routerLinkActive="active">UPDATE MENU ITEM</a>
-          </li>
           <li *ngIf="isLoggedIn" class="navbar-item nav-item">
             <a class="nav-link" routerLinkActive="active" style="text-transform: uppercase">{{userData.fname}} {{userData.lname}}</a>
+          </li>
+          <li *ngIf="isLoggedIn" class="navbar-item nav-item">
+            <a class="nav-link" routerLink="/logout"  routerLinkActive="active">LOGOUT</a>
           </li>
           <li *ngIf="!isLoggedIn" class="navbar-item nav-item">
             <a class="nav-link" routerLink="/login" routerLinkActive="active">LOGIN</a>

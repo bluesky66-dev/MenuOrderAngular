@@ -32,6 +32,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
 import { UpdateItemComponent } from './pages/update-item/update-item.component';
 import { MyItemsComponent } from './pages/my-items/my-items.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -52,7 +53,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     RegisterComponent,
     UpdateItemComponent,
-    MyItemsComponent
+    MyItemsComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

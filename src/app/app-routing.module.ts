@@ -12,6 +12,7 @@ import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {MyItemsComponent} from './pages/my-items/my-items.component';
 import {UpdateItemComponent} from './pages/update-item/update-item.component';
+import {LogoutComponent} from './pages/logout/logout.component';
 
 const routes: Routes = [
   {path: '', component: ItemListComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'add-item', component: AddItemComponent},
   {path: 'item-list', component: ItemListComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: 'register', component: RegisterComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
