@@ -11,7 +11,7 @@ import * as ls from 'local-storage';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn = false;
-  userData = {};
+  userData = {role: ''};
 
   constructor(
     private authService: AuthService,
@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     this.authService.isLogout.subscribe(isLogout => {
       // console.log('user logged in', isLogout);
       this.isLoggedIn = !isLogout;
-      this.userData = {};
+      this.userData = {role: ''};
     });
   }
 }

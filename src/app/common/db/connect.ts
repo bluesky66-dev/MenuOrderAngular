@@ -8,7 +8,7 @@ export default () => {
   if (AppConfig.environment === 'LOCAL') {
     url = 'mongodb://localhost:27017/' + AppConfig.DB_NAME + '?retryWrites=true/';
   }
-  url = 'mongodb://localhost:27017/' + AppConfig.DB_NAME + '?retryWrites=true/';
-  // console.log('database url', url);
+  // url = 'mongodb://localhost:27017/' + AppConfig.DB_NAME + '?retryWrites=true/';
+  console.log('database url', url);
   return  new MongoClient(url, {useNewUrlParser: true});
 };
